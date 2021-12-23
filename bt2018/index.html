@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>tính tổng của a và b</title>
+    <style>
+        .container{
+            border: 1px solid rgb(77, 77, 228);
+        }
+
+        .container h3{
+            background-color: rgb(77, 77, 228);
+            color: white;
+            padding: 8px 16px;
+            margin: 0 auto;
+        }
+
+        .content{
+            padding: 10px 20px;
+        }
+
+        .content button{
+            background-color: green;
+            color: white;
+            padding: 8px 12px;
+            border: none;
+            border-radius: 5px;
+            margin: auto 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h3>Tính tổng</h3>
+        <div class="content">
+            <button onclick="nhapA()">Nhập Giá Trị A</button>
+            <button onclick="nhapB()">Nhập Giá Trị B</button>
+            <button onclick="tinhTong()">In Kết Quả</button>
+        </div>
+    </div>
+
+    <script>
+        var a
+        var b
+        function nhapA(){
+            a = parseFloat(prompt('Hãy nhập giá trị cho A = ', 0))
+            return a
+        }
+
+        function nhapB(){
+            b = parseFloat(prompt('Hãy nhập giá trị cho B = ', 0))
+            return b
+        }
+
+        function tinhTong(){
+            var tong = a + b;
+            if(isNaN(tong)){
+                var sum = nhapA() + nhapB()
+                alert('Tổng của A và B là: ' + sum);
+            }else{
+                alert('Tổng của A và B là: ' + tong);
+            }
+        }
+    </script>
+</body>
+</html>

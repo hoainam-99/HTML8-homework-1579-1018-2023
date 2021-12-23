@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <style>
+        .container{
+            border: 0.5px solid #ccc;
+            height: 388px;
+            width: 700px;
+            border-radius: 10px;
+        }
+
+        #result{
+            border: 0.5px solid #ccc;
+            border-radius: 10px;
+            height: 36px;
+            padding: 20px;
+            text-align: right;
+            margin: 16px;
+            font-size: 30px;
+        }
+
+        .row{
+            display: flex;
+            justify-content: space-evenly;
+            margin: 15px auto;
+        }
+
+        .btn{
+            padding: 5px 10px;
+            width: 90px;
+            height: 40px;
+            border-radius: 5px;
+            border: none;
+            font-size: larger;
+            font-weight: bold;
+            background-color: rgb(168, 164, 164);
+        }
+        
+        .btn:hover{
+            transform: scale(0.9);
+            
+        }
+
+        .number{
+            background-color: rgba(239, 239, 239, 1);
+        }
+
+        .equal-btn{
+            background-color: aqua;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div id="result"></div>
+        <div class="calculate">
+            <div class="row">
+                <button class="btn">Rad</button>
+                <button class="btn">Deg</button>
+                <button class="btn" value="!">x!</button>
+                <button class="btn" value="(">(</button>
+                <button class="btn" value=")">)</button>
+                <button class="btn" value="%">%</button>
+                <button class="btn equal-btn" onclick="clean()">AC</button>
+            </div>
+            <div class="row">
+                <button class="btn" value="Inv(">Inv</button>
+                <button class="btn" value="sin(">sin</button>
+                <button class="btn" value="In(">In</button>
+                <button class="btn number" value="7">7</button>
+                <button class="btn number" value="8">8</button>
+                <button class="btn number" value="9">9</button>
+                <button class="btn" value="/">&#247;</button>
+            </div>
+            <div class="row">
+                <button class="btn" value="3.14">&pi;</button>
+                <button class="btn" value="cos(">cos</button>
+                <button class="btn" value="log(">log</button>
+                <button class="btn number" value="4">4</button>
+                <button class="btn number" value="5">5</button>
+                <button class="btn number" value="6">6</button>
+                <button class="btn" value="*">&#215;</button>
+            </div>
+            <div class="row">
+                <button class="btn" value="e">e</button>
+                <button class="btn" value="tan(">tan</button>
+                <button class="btn" value="Math.sqrt(">&#8730;</button>
+                <button class="btn number" value="1">1</button>
+                <button class="btn number" value="2">2</button>
+                <button class="btn number" value="3">3</button>
+                <button class="btn" value="-">-</button>
+            </div>
+            <div class="row">
+                <button class="btn">Ans</button>
+                <button class="btn">EXP</button>
+                <button class="btn" value="**">x<sup>y</sup></button>
+                <button class="btn number" value="0">0</button>
+                <button class="btn number" value=".">.</button>
+                <button class="btn equal-btn" onclick="equal()">=</button>
+                <button class="btn" value="+">+</button>
+            </div>
+        </div>
+    </div>
+    <script>
+        const numbers = document.getElementsByClassName('btn')
+        const result = document.getElementById('result')
+        for (var number of numbers){
+            number.addEventListener('click', function(){
+                result.innerHTML += this.value
+            })
+        }
+        function equal(){
+            var res = result.innerHTML
+            var output = eval(res)
+            result.innerHTML = output
+        }
+
+        function clean(){
+            result.innerHTML = " "
+        }
+    </script>
+</body>
+</html>
